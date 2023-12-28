@@ -9,16 +9,9 @@ xhr.onreadystatechange = () =>{
 
 xhr.onload = () =>{
     console.log(JSON.parse(xhr.response))
-    
+    const countries = JSON.parse(xhr.response)
+    for(let country of countries){
+console.log("The name of the countries ==>",country.name.common,"    ","The name of the region==>",country.region,"    ","The name of the subregion==>",country.subregion,"   ","population==>",country.population)
 }
-fetch("https://restcountries.com/v3.1/all")
-.then((response) => response.json())
-.then ((data) => {
- data.forEach(element => {
-    
- 
-   console.log("The name of the countries ==>",element.name.common,"The name of the region==>",element.region,"The name of the subregion==>",element.subregion,"population==>",element.population)
-   
-});
-});
+}
 
